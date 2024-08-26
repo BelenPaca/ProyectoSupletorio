@@ -8,10 +8,15 @@ import java.time.LocalDateTime;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
+    @Column
     private String title;
+    @Column
     private String description;
-    private boolean completed;
+    @Column
+    private boolean state;
+    @Column
     private LocalDateTime creationDate;
 
     public Task() {
@@ -41,19 +46,30 @@ import java.time.LocalDateTime;
         this.description = description;
     }
 
-    public boolean isCompleted() {
-        return completed;
+    public boolean isState() {
+        return state;
     }
 
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
+    public void setState(boolean state) {
+        this.state = state;
     }
 
-    public LocalDateTime getCreationDate() {
+        public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
     public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
-}
+
+        @Override
+        public String toString() {
+            return "Task{" +
+                    "id=" + id +
+                    ", title='" + title + '\'' +
+                    ", description='" + description + '\'' +
+                    ", completed=" + state +
+                    ", creationDate=" + creationDate +
+                    '}';
+        }
+    }

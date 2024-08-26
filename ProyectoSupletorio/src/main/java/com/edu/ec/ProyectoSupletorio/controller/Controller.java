@@ -42,7 +42,6 @@ import java.util.Optional;
             }
 
         }
-
         @DeleteMapping("/{id}")
         public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
             try {
@@ -52,10 +51,9 @@ import java.util.Optional;
                 return ResponseEntity.notFound().build();
             }
         }
-
-        @GetMapping("/status/{completed}")
-        public List<Task> getTasksByStatus(@PathVariable boolean completed) {
-            return taskService.getTasksByStatus(completed);
+        @GetMapping("/status/{state}")
+        public List<Task> getTasksByStatus(@PathVariable boolean state) {
+            return taskService.getTasksByStatus(state);
         }
     }
 
